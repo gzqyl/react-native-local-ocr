@@ -13,7 +13,7 @@
     "android",
     "ios",
     "cpp",
-    "react-native-sqlite-3.podspec",
+    "react-native-ocr.podspec",
     "!lib/typescript/example",
     "!android/build",
     "!ios/build",
@@ -35,50 +35,49 @@
     "react-native",
     "ios",
     "android",
-    "pouchdb",
-    "sqlite"
+    "ocr"
   ],
-  "repository": "https://github.com/gzqyl/react-native-sqlite-3",
-  "author": "Takuya Matsuyama <hi@craftz.dog> (https://github.com/craftzdog) Allen <allen.gzqyl@gmail.com> (https://github.com/gzqyl)",
-  "license": "Apache-2.0",
+  "repository": "https://github.com/gzqyl/react-native-ocr",
+  "author": "Allen <allen.gzqyl@gmail.com> (https://github.com/gzqyl)",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/craftzdog/react-native-sqlite-2/issues"
+    "url": "https://github.com/gzqyl/react-native-ocr/issues"
   },
-  "homepage": "https://github.com/craftzdog/react-native-sqlite-2#readme",
+  "homepage": "https://github.com/gzqyl/react-native-ocr#readme",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   },
   "dependencies": {
-    "lodash.map": "^4.6.0",
-    "lodash.zipobject": "^4.1.3",
-    "websql": "^2.0.3"
+    "react": "^18.0.0",
+    "react-native": "^0.71.0"
   },
   "devDependencies": {
-    "@commitlint/config-conventional": "^16.0.0",
-    "@release-it/conventional-changelog": "^4.1.0",
-    "@types/jest": "^27.0.3",
-    "@types/lodash.map": "^4.6.13",
-    "@types/lodash.zipobject": "^4.1.6",
-    "@types/react": "^17.0.37",
-    "@types/react-native": "0.66.15",
-    "@types/websql": "^0.0.27",
-    "@typescript-eslint/eslint-plugin": "^5.10.2",
-    "@typescript-eslint/parser": "^5.10.2",
+    "@react-native-community/eslint-config": "^3.0.0",
+    "@release-it/conventional-changelog": "^2.0.0",
+    "@types/jest": "^26.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-native": "0.72.3",
     "commitlint": "^11.0.0",
-    "eslint": "^8.4.1",
+    "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
-    "husky": "^7.0.0",
-    "jest": "^27.4.3",
-    "pod-install": "^0.1.0",
-    "prettier": "^2.4.1",
-    "react": "17.0.2",
-    "react-native": "0.67.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "husky": "^4.2.5",
+    "pod-install": "^0.1.38",
+    "prettier": "^2.0.5",
+    "react": "18.2.0",
+    "react-native": "0.72.5",
     "react-native-builder-bob": "^0.18.0",
-    "release-it": "^14.2.2",
-    "typescript": "^4.5.2"
+    "react-native-vision-camera": "^3.6.4",
+    "react-native-worklets-core": "^0.2.4",
+    "release-it": "^16.1.3",
+    "typescript": "^5.1.6"
   },
   "peerDependencies": {
-    "react-native": ">= 0.60.0"
+    "react": "*",
+    "react-native": "*",
+    "react-native-vision-camera": "*",
+    "react-native-worklets-core": "*"
   },
   "jest": {
     "preset": "react-native",
@@ -87,48 +86,23 @@
       "<rootDir>/lib/"
     ]
   },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
-  "release-it": {
-    "git": {
-      "commitMessage": "chore: release ${version}",
-      "tagName": "v${version}"
-    },
-    "npm": {
-      "publish": true
-    },
-    "github": {
-      "release": true
-    },
-    "plugins": {
-      "@release-it/conventional-changelog": {
-        "preset": "angular"
-      }
-    }
-  },
   "eslintConfig": {
     "root": true,
-    "parser": "@typescript-eslint/parser",
-    "plugins": [
-      "@typescript-eslint/eslint-plugin"
-    ],
     "extends": [
+      "@react-native-community",
       "prettier"
     ],
     "rules": {
-      "@typescript-eslint/no-unused-vars": [
+      "prettier/prettier": [
         "error",
         {
-          "argsIgnorePattern": "^_"
+          "quoteProps": "consistent",
+          "singleQuote": true,
+          "tabWidth": 2,
+          "trailingComma": "es5",
+          "useTabs": false
         }
-      ],
-      "no-unused-vars": "off",
-      "no-shadow": "off",
-      "@typescript-eslint/no-shadow": 1,
-      "no-undef": "off"
+      ]
     }
   },
   "eslintIgnore": [

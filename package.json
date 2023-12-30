@@ -1,7 +1,7 @@
 {
   "name": "@gzqyl/react-native-ocr",
-  "version": "3.6.2",
-  "description": "SQLite3 Native Plugin for React Native for iOS, Android, Windows and macOS",
+  "version": "1.0.1",
+  "description": "For Local OCR",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/index.d.ts",
@@ -12,7 +12,6 @@
     "lib",
     "android",
     "ios",
-    "windows",
     "cpp",
     "react-native-sqlite-3.podspec",
     "!lib/typescript/example",

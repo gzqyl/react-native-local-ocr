@@ -48,10 +48,6 @@
     "registry": "https://registry.npmjs.org/",
     "access": "public"
   },
-  "dependencies": {
-    "react": "^18.0.0",
-    "react-native": "^0.71.0"
-  },
   "devDependencies": {
     "@react-native-community/eslint-config": "^3.0.0",
     "@release-it/conventional-changelog": "^2.0.0",

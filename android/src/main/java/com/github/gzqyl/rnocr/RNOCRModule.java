@@ -33,14 +33,15 @@ public class RNOCRModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void recognizeImage(String url, Promise promise) {
+    public void recognizeImage(String url, String localLang, Promise promise) {
         Log.d("RNOCRModule", "Url: " + url);
         Uri uri = Uri.parse(url);
         InputImage image;
         try {
             image = InputImage.fromFilePath(getReactApplicationContext(), uri);
+            TextRecognizer recognizer;
             // When using Latin script library
-            TextRecognizer recognizer =
+            recognizer =
                     TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS);
 
             recognizer.process(image)

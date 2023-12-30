@@ -62,7 +62,9 @@
     "typescript": "^5.1.6"
   },
   "peerDependencies": {
-    "react-native": ">= 0.60.0"
+    "react-native": ">= 0.60.0",
+    "react-native-vision-camera": "*",
+    "react-native-worklets-core": "*"
   },
   "jest": {
     "preset": "react-native",

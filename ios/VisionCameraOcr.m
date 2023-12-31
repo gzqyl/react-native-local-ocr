@@ -1,8 +1,7 @@
 #import <Foundation/Foundation.h>
 #import <VisionCamera/FrameProcessorPlugin.h>
 #import <VisionCamera/FrameProcessorPluginRegistry.h>
-
-#import "react-native-ocr-Swift.h"
+#import "react_native_ocr-Swift.h"
 
 @interface OCRFrameProcessorPlugin (FrameProcessorPluginLoader)
 @end

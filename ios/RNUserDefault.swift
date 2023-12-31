@@ -23,5 +23,13 @@ public class RNUserDefaultSwift: NSObject {
     public func setMLKitLangSwift(_ langCode: String){
         UserDefaults().set(langCode, forKey: "mlkit-local-lang")
     }
+
+    @objc
+    public func isLangSetted() -> Bool{
+        if let _ = UserDefaults().string(forKey: "mlkit-local-lang"){
+            return true
+        }
+        return false
+    }
    
 }

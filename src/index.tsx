@@ -81,3 +81,7 @@ export const getMLKitLangCode = () => {
 export const setMLKitLangCode = (langCode: string) => {
   RNUserDefault.setMLkitLang(langCode)
 }
+
+export const isLangSetted = () => {
+  return RNUserDefault.isLangSetted()
+}

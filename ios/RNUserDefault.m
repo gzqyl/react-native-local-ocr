@@ -34,4 +34,15 @@ RCT_EXPORT_METHOD(setMLkitLang:(NSString *) langCode
   
 }
 
+RCT_EXPORT_METHOD(isLangSetted:(void *)
+                  resolver:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject)
+{
+    
+    RNUserDefaultSwift* swiftObj = [[RNUserDefaultSwift alloc] init];
+    BOOL res = [swiftObj isLangSetted];
+    resolve(res);
+  
+}
+
 @end

@@ -1,6 +1,6 @@
 {
   "name": "@gzqyl/react-native-ocr",
-  "version": "4.1.1",
+  "version": "5.0.1",
   "description": "For Local OCR",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -13,7 +13,7 @@
     "android",
     "ios",
     "cpp",
-    "react-native-ocr.podspec",
+    "react_native_ocr.podspec",
     "!lib/typescript/example",
     "!android/build",
     "!ios/build",

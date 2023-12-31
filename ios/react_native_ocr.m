@@ -12,6 +12,11 @@
 {
   [FrameProcessorPluginRegistry addFrameProcessorPlugin:@"scanOCR"
                                         withInitializer:^FrameProcessorPlugin* (NSDictionary* options) {
+
+    //get the async-storage data here...
+
+    //type LangCode = 'en' | 'ja' | 'ko' | 'zh'
+
     return [[OCRFrameProcessorPlugin alloc] init];
   }];
 }

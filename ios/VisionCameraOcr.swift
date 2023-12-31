@@ -5,7 +5,6 @@ import MLKitTextRecognition
 import MLKitTextRecognitionChinese
 import MLKitTextRecognitionKorean
 import MLKitTextRecognitionJapanese
-import MLKitTextRecognitionDevanagari
 import CoreImage
 import UIKit
 
@@ -146,51 +145,34 @@ public class OCRFrameProcessorPlugin: FrameProcessorPlugin {
         visionImage.orientation = .up
         
         var result: Text
-        
         //here,we get the local lang settings
-        let ocrDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("ocr").appendingPathComponent("local.msg")
+        let mlkitLangCodeObj: RNUserDefaultSwift = RNUserDefaultSwift()
+        let ocrMsg = mlkitLangCodeObj.getMLKitLangSwift()
         
         var textRecognizer: TextRecognizer
-        
-        if !FileManager.default.fileExists(atPath: ocrDir.path) {
+            
+        if ocrMsg == "zh"{
+            
+            let chineseOptions = ChineseTextRecognizerOptions()
+            textRecognizer = TextRecognizer.textRecognizer(options:chineseOptions)
+            
+        }else if ocrMsg == "ja"{
+            
+            let japaneseOptions = JapaneseTextRecognizerOptions()
+            textRecognizer = TextRecognizer.textRecognizer(options:japaneseOptions)
+            
+        }else if ocrMsg == "ko"{
+            
+            let koreanOptions = KoreanTextRecognizerOptions()
+            textRecognizer = TextRecognizer.textRecognizer(options:koreanOptions)
+            
+        }else{
+            
             let latinOptions = TextRecognizerOptions()
             textRecognizer = TextRecognizer.textRecognizer(options:latinOptions)
-        }else{
-            //get the ctns from file...
-            if let ocrMsg = try? String(contentsOf: ocrDir) {
-                
-                if ocrMsg == "en" {
-                    
-                    let latinOptions = TextRecognizerOptions()
-                    textRecognizer = TextRecognizer.textRecognizer(options:latinOptions)
-                    
-                }else if ocrMsg == "zh"{
-                    
-                    let chineseOptions = ChineseTextRecognizerOptions()
-                    textRecognizer = TextRecognizer.textRecognizer(options:chineseOptions)
-                    
-                }else if ocrMsg == "jp"{
-                    
-                    let japaneseOptions = JapaneseTextRecognizerOptions()
-                    textRecognizer = TextRecognizer.textRecognizer(options:japaneseOptions)
-                    
-                }else if ocrMsg == "kr"{
-                    
-                    let koreanOptions = KoreanTextRecognizerOptions()
-                    textRecognizer = TextRecognizer.textRecognizer(options:koreanOptions)
-                    
-                }else{
-                    
-                    let devanagariOptions = DevanagariTextRecognizerOptions()
-                    textRecognizer = TextRecognizer.textRecognizer(options:devanagariOptions)
-                    
-                }
-                
-            }else{
-                let latinOptions = TextRecognizerOptions()
-                textRecognizer = TextRecognizer.textRecognizer(options:latinOptions)
-            }
+            
         }
+       
         
         do {
           result = try textRecognizer.results(in: visionImage)

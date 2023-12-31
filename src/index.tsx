@@ -66,10 +66,18 @@ export function scanOCR(frame: Frame): OCRFrame {
 }
 
 
-const {RNOCRModule} = NativeModules;
+const {RNOCRModule, RNUserDefault} = NativeModules;
 
-export type OCRLocalLang = "en" | "zh" | "jp" | "kr" | "devi"
+export type MLKitLangCode = "en" | "zh" | "ja" | "ko"
 
-export const recognizeImage = (url: string, lang: OCRLocalLang) => {
-  return RNOCRModule.recognizeImage(url, lang);
+export const recognizeImage = (url: string) => {
+  return RNOCRModule.recognizeImage(url);
 };
+
+export const getMLKitLangCode = () => {
+  return RNUserDefault.getMLkitLang()
+}
+
+export const setMLKitLangCode = (langCode: string) => {
+  RNUserDefault.setMLkitLang(langCode)
+}

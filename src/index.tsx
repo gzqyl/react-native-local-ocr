@@ -70,18 +70,24 @@ const {RNOCRModule, RNUserDefault} = NativeModules;
 
 export type MLKitLangCode = "en" | "zh" | "ja" | "ko"
 
-export const recognizeImage = (url: string) => {
+type OCRDataBlockType = {
+  text: string
+}
+type OCRDataType = {
+  blocks: OCRDataBlockType[]
+}
+export const recognizeImage = async (url: string): Promise<OCRDataType> => {
   return RNOCRModule.recognizeImage(url);
 };
 
-export const getMLKitLangCode = () => {
+export const getMLKitLangCode = async (): Promise<string> => {
   return RNUserDefault.getMLkitLang()
 }
 
-export const setMLKitLangCode = (langCode: string) => {
+export const setMLKitLangCode = async (langCode: string): Promise<void> => {
   RNUserDefault.setMLkitLang(langCode)
 }
 
-export const isLangSetted = () => {
+export const isLangSetted = async (): Promise<boolean> => {
   return RNUserDefault.isLangSetted()
 }

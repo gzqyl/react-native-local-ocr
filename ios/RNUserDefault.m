@@ -2,7 +2,7 @@
 //  RNUserDefault.m
 //  react_native_ocr
 //
-//  Created by 浪漫小子 on 2023/12/31.
+//  Created by gzqyl on 2023/12/31.
 //
 
 #import <Foundation/Foundation.h>
@@ -41,7 +41,11 @@ RCT_EXPORT_METHOD(isLangSetted:(void *)
     
     RNUserDefaultSwift* swiftObj = [[RNUserDefaultSwift alloc] init];
     BOOL res = [swiftObj isLangSetted];
-    resolve(res);
+    if (res) {
+        resolve(@YES);
+    }else{
+        resolve(@NO);
+    }
   
 }
 

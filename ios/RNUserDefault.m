@@ -16,7 +16,7 @@
 
 RCT_EXPORT_MODULE();
 
-RCT_EXPORT_METHOD(getMLkitLang:(NSString *)
+RCT_EXPORT_METHOD(getMLkitLang:()
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 {
@@ -36,7 +36,7 @@ RCT_EXPORT_METHOD(setMLkitLang:(NSString *) langCode
   
 }
 
-RCT_EXPORT_METHOD(isLangSetted:(NSString *)
+RCT_EXPORT_METHOD(isLangSetted:()
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 {

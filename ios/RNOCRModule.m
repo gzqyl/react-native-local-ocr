@@ -4,6 +4,8 @@
 #import <AVFoundation/AVFoundation.h>
 #import <VisionKit/VisionKit.h>
 #import <Vision/Vision.h>
+#import <VisionCamera/FrameProcessorPlugin.h>
+#import <VisionCamera/FrameProcessorPluginRegistry.h>
 #import "react_native_ocr-Swift.h"
 
 @import MLKitCommon;

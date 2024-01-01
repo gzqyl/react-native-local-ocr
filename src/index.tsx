@@ -80,7 +80,7 @@ export const recognizeImage = async (url: string): Promise<OCRDataType> => {
   return RNOCRModule.recognizeImage(url);
 };
 
-export const getMLKitLangCode = async (): Promise<string> => {
+export const getMLKitLangCode = async (_fakeVal = "fakeVal"): Promise<string> => {
   return RNUserDefault.getMLkitLang()
 }
 
@@ -88,6 +88,6 @@ export const setMLKitLangCode = async (langCode: string): Promise<void> => {
   RNUserDefault.setMLkitLang(langCode)
 }
 
-export const isLangSetted = async (): Promise<boolean> => {
+export const isLangSetted = async (_fakeVal = "fakeVal"): Promise<boolean> => {
   return RNUserDefault.isLangSetted()
 }

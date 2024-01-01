@@ -1,6 +1,6 @@
 {
   "name": "@gzqyl/react-native-ocr",
-  "version": "7.1.1",
+  "version": "8.0.1",
   "description": "For Local OCR",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",

@@ -137,10 +137,7 @@ dependencies {
 
   // To recognize Chinese script
   implementation 'com.google.mlkit:text-recognition-chinese:16.0.0'
-
-  // To recognize Devanagari script
-  implementation 'com.google.mlkit:text-recognition-devanagari:16.0.0'
-
+  
   // To recognize Japanese script
   implementation 'com.google.mlkit:text-recognition-japanese:16.0.0'
 

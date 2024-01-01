@@ -8,6 +8,8 @@
 #import <Foundation/Foundation.h>
 #import "RNUserDefault.h"
 #import <React/RCTLog.h>
+#import <VisionCamera/FrameProcessorPlugin.h>
+#import <VisionCamera/FrameProcessorPluginRegistry.h>
 #import "react_native_ocr-Swift.h"
 
 @implementation RNUserDefault

@@ -18,6 +18,9 @@ import com.google.mlkit.vision.common.InputImage;
 import com.google.mlkit.vision.text.Text;
 import com.google.mlkit.vision.text.TextRecognition;
 import com.google.mlkit.vision.text.TextRecognizer;
+import com.google.mlkit.vision.text.chinese.ChineseTextRecognizerOptions;
+import com.google.mlkit.vision.text.japanese.JapaneseTextRecognizerOptions;
+import com.google.mlkit.vision.text.korean.KoreanTextRecognizerOptions;
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions;
 
 import java.io.IOException;
@@ -33,17 +36,23 @@ public class RNOCRModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void recognizeImage(String url, String localLang, Promise promise) {
+    public void recognizeImage(String url, Promise promise) {
         Log.d("RNOCRModule", "Url: " + url);
         Uri uri = Uri.parse(url);
         InputImage image;
         try {
             image = InputImage.fromFilePath(getReactApplicationContext(), uri);
             TextRecognizer recognizer;
-            // When using Latin script library
-            recognizer =
-                    TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS);
-
+            String langCode = new RNUserDataStore().getMLkitLang();
+            if (langCode == "zh") {
+                recognizer = TextRecognition.getClient(new ChineseTextRecognizerOptions.Builder().build());
+            } else if (langCode == "ja") {
+                recognizer = TextRecognition.getClient(new JapaneseTextRecognizerOptions.Builder().build());
+            } else if (langCode == "ko") {
+                recognizer = TextRecognition.getClient(new KoreanTextRecognizerOptions.Builder().build());
+            }else {
+                recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS);
+            }
             recognizer.process(image)
                             .addOnSuccessListener(new OnSuccessListener<Text>() {
                                 @Override

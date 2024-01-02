@@ -13,34 +13,22 @@ class RNUserDefault(reactContext: ReactApplicationContext) : ReactContextBaseJav
 
     @ReactMethod fun getMLkitLang(fakeVal: String, promise: Promise) {
 
-        try {
-            val eventId = 1
-            promise.resolve(eventId)
-        } catch (e: Throwable) {
-            promise.reject("Create Event Error", e)
-        }
+        val langCode = RNUserDataStore().getMLkitLang()
+        promise.resolve(langCode)
 
     }
 
     @ReactMethod fun setMLkitLang(langCode: String, promise: Promise) {
 
-        try {
-            val eventId = 1
-            promise.resolve(eventId)
-        } catch (e: Throwable) {
-            promise.reject("Create Event Error", e)
-        }
+       RNUserDataStore().setMLkitLang(langCode)
+       promise.resolve("ok")
 
     }
 
     @ReactMethod fun isLangSetted(fakeVal: String, promise: Promise) {
 
-        try {
-            val eventId = 1
-            promise.resolve(eventId)
-        } catch (e: Throwable) {
-            promise.reject("Create Event Error", e)
-        }
+        val langSetted = RNUserDataStore().isLangSetted()
+        promise.resolve(langSetted)
 
     }
 

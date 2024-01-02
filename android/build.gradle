@@ -143,4 +143,7 @@ dependencies {
 
   // To recognize Korean script
   implementation 'com.google.mlkit:text-recognition-korean:16.0.0'
+
+  //dataStore
+  implementation "androidx.datastore:datastore-preferences:1.0.0"
 }

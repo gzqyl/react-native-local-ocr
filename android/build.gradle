@@ -48,6 +48,9 @@ def kotlin_version = rootProject.ext.has('kotlinVersion') ? rootProject.ext.get(
 dependencies {
   // noinspection GradleDynamicVersion
   implementation "com.facebook.react:react-android:+"
+  implementation "androidx.camera:camera-core:1.1.0"
+  implementation project(':react-native-vision-camera')
+
   implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
   
   implementation 'com.google.mlkit:text-recognition:16.0.0'

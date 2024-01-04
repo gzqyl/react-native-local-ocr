@@ -1,6 +1,6 @@
 package com.github.gzqyl.rnocr
 
-import android.app.Activity
+import android.app.Application
 import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
@@ -10,9 +10,21 @@ import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.runBlocking
 
-class RNUserDataStore {
+class RNUserDataStore: Application() {
 
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "mlkit_langcode_settings")
+
+    override fun onCreate() {
+        super.onCreate()
+        appContext = applicationContext
+    }
+
+    companion object {
+
+        lateinit  var appContext: Context
+
+    }
+    
 
     val langKey = stringPreferencesKey("mlkit_lang_code")
 
@@ -20,7 +32,7 @@ class RNUserDataStore {
 
         return runBlocking{
 
-            Activity().applicationContext.dataStore.data.firstOrNull()?.get(langKey) ?: "en"
+            appContext.dataStore.data.firstOrNull()?.get(langKey) ?: "en"
 
         }
 
@@ -30,7 +42,7 @@ class RNUserDataStore {
 
         runBlocking{
 
-            Activity().applicationContext.dataStore.edit { preferences ->
+            appContext.dataStore.edit { preferences ->
                 preferences[langKey] = langCode
             }
 
@@ -42,7 +54,7 @@ class RNUserDataStore {
 
         return runBlocking{
 
-            val langCode = Activity().applicationContext.dataStore.data.firstOrNull()?.get(langKey)
+            val langCode = appContext.dataStore.data.firstOrNull()?.get(langKey)
 
             langCode != null
 

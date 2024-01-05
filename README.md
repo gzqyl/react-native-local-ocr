@@ -10,3 +10,5 @@ we hope that you could favor us by installing follow apps on the AppStore:
 
 [F Player - Audio or video clip](https://apps.apple.com/us/app/f-player-audio-or-video-clip/id1556171420) Yet another local media player and editor
 
+- we should use other three package instead of this package, as this package is hard to debug when bugs occurs
+
